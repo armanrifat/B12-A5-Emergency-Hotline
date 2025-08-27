@@ -20,3 +20,36 @@ const services = [
   { name: "Women Help", en: "Women Help", number: "109", category: "Support" },
   { name: "Gas Service", en: "Gas", number: "16496", category: "Utility" },
 ];
+
+// Generate Cards
+services.forEach(service => {
+  const card = document.createElement("div");
+  card.className = "bg-white p-4 rounded shadow text-center";
+
+  card.innerHTML = `
+    <div class="flex justify-between items-center mb-2">
+      <button class="heartBtn">💗</button>
+      <span class="bg-gray-200 px-2 py-1 text-xs rounded">${service.category}</span>
+    </div>
+    <h4 class="font-bold">${service.name}</h4>
+    <p class="text-sm">${service.en}</p>
+    <p class="font-mono text-lg">${service.number}</p>
+    <div class="flex justify-center gap-3 mt-3">
+      <button class="copyBtn bg-blue-500 text-white px-3 py-1 rounded">📋 Copy</button>
+      <button class="callBtn bg-green-500 text-white px-3 py-1 rounded">📞 Call</button>
+    </div>
+  `;
+
+   // Heart Click
+  card.querySelector(".heartBtn").addEventListener("click", () => {
+    heartCount++;
+    heartCounter.textContent = heartCount;
+  });
+
+  // Copy Button
+  card.querySelector(".copyBtn").addEventListener("click", () => {
+    navigator.clipboard.writeText(service.number);
+    alert(`Copied: ${service.number}`);
+    copyCount++;
+    copyCounter.textContent = copyCount;
+  });
