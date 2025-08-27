@@ -74,3 +74,8 @@ services.forEach(service => {
 
   cardSection.appendChild(card);
 });
+
+// Clear History
+clearHistoryBtn.addEventListener("click", () => {
+  historyList.innerHTML = "";
+});
