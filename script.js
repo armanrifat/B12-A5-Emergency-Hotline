@@ -53,3 +53,24 @@ services.forEach(service => {
     copyCount++;
     copyCounter.textContent = copyCount;
   });
+
+  // Call Button
+  card.querySelector(".callBtn").addEventListener("click", () => {
+    if (coinCount < 20) {
+      alert("Not enough coins!");
+      return;
+    }
+
+    coinCount -= 20;
+    coinCounter.textContent = coinCount;
+
+    const now = new Date().toLocaleTimeString();
+    alert(`Calling ${service.name} at ${service.number}`);
+
+    const li = document.createElement("li");
+    li.textContent = `${service.name} - ${service.number} (at ${now})`;
+    historyList.appendChild(li);
+  });
+
+  cardSection.appendChild(card);
+});
