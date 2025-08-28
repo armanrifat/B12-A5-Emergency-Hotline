@@ -39,7 +39,7 @@
 
 
        <!-- Main Section -->
-          <main class="grid md:grid-cols-3 gap-6 p-6">
+          <main class="grid md:grid-cols-3 gap-6 p-4" id="cardsContainer"></main>
 
       <!-- Card Section -->
     <section id="cardSection" class="md:col-span-2 grid sm:grid-cols-2 gap-4">
@@ -47,15 +47,21 @@
     </section>
 
      <!-- History Section -->
-    <section class="bg-white p-4 rounded shadow">
-      <div class="flex justify-between items-center mb-4">
-        <h3 class="font-bold text-lg">📞 Call History</h3>
-        <button id="clearHistory" class="bg-red-500 text-white px-3 py-1 rounded">Clear</button>
-      </div>
-      <ul id="historyList" class="space-y-2"></ul>
-    </section>
+    <section class="bg-white p-4 mt-6 shadow rounded">
+  <div class="flex justify-between items-center mb-4">
+    <h3 class="font-bold flex items-center gap-2">
+      <img src="history.png" class="w-5 h-5"> Call History
+    </h3>
+    <button id="clearHistoryBtn" class="bg-red-500 text-white px-3 py-1 rounded">Clear History</button>
+  </div>
+  <div id="callHistory"></div>
+</section>
 
-     <script src="script.js"></script>
-  </main>
+<script>
+  document.getElementById('clearHistoryBtn').addEventListener('click', () => {
+    document.getElementById('callHistory').innerHTML = '';
+  });
+</script>
+
 </body>
-</html>
+</html>p-6">
